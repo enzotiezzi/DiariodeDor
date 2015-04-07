@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="diariodedor.pucsp.com.diariodedor" >
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".View.TelaCorpo"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".View.TelaRespostas"
+            android:label="@string/title_activity_tela_respostas"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity
+            android:name=".View.TelaFormulario"
+            android:label="@string/title_activity_tela_formulario"
+            android:screenOrientation="landscape" >
+        </activity>
+    </application>
+
+</manifest>

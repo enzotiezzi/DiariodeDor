@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Diario de Dor</string>
+
+    <string name="Corpo">Corpo</string>
+    <string name="Formulario">Formulário</string>
+    <string name="Formulario2">Formulário 2</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_example">Example action</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_tela_respostas">TelaRespostas</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_tela_formulario">TelaFormulario</string>
+</resources>
