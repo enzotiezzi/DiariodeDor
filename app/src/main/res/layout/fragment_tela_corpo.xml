@@ -6,33 +6,345 @@
                 android:paddingRight="@dimen/activity_horizontal_margin"
                 android:paddingTop="@dimen/activity_vertical_margin"
                 android:paddingBottom="@dimen/activity_vertical_margin"
-                tools:context=".TelaCorpo$PlaceholderFragment"
+                tools:context=".TelaCorpo$TelaCorpoFragment"
                 android:background="@color/white">
 
-    <TextView
-        android:id="@+id/section_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <TextView
+    <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Corpo"
-        android:id="@+id/textView"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="@color/white"/>
+        android:id="@+id/scrollView">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageViewCorpo"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/corpo"
-        android:minWidth="300sp"
-        android:background="@color/white"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toLeftOf="@+id/imageView"
+                android:background="@color/white"
+                android:id="@+id/linearLayout"
+                android:layout_toEndOf="@+id/linearLayoutCorpo">
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rosto"
+                    android:id="@+id/checkBoxRosto"
+                    android:layout_below="@+id/section_label"
+                    android:layout_toRightOf="@+id/imageView"
+                    android:layout_toEndOf="@+id/imageView"
+                    android:textSize="12sp"
+                    android:background="@color/white"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Maxiliar - Esquerda"
+                    android:id="@+id/checkBoxMaxilarEsq"
+                    android:layout_below="@+id/checkBoxRosto"
+                    android:layout_toRightOf="@+id/imageView"
+                    android:layout_toEndOf="@+id/imageView"
+                    android:textSize="12sp"
+                    android:background="@color/white"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Maxilar - Direita"
+                    android:id="@+id/checkBoxMaxilarDir"
+                    android:layout_below="@+id/checkBoxMaxilarEsq"
+                    android:layout_toRightOf="@+id/imageView"
+                    android:layout_toEndOf="@+id/imageView"
+                    android:textSize="12sp"
+                    android:background="@color/white"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pescoço"
+                    android:id="@+id/checkBoxPescoco"
+                    android:layout_below="@+id/checkBoxMaxilarDir"
+                    android:layout_toRightOf="@+id/imageView"
+                    android:layout_toEndOf="@+id/imageView"
+                    android:textSize="12sp"
+                    android:background="@color/white"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ombro - Esquerdo"
+                    android:id="@+id/checkBoxOmbroEsq"
+                    android:layout_below="@+id/checkBoxPescoco"
+                    android:layout_toRightOf="@+id/imageView"
+                    android:layout_toEndOf="@+id/imageView"
+                    android:textSize="12sp"
+                    android:background="@color/white"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ombro - Direito"
+                    android:id="@+id/checkBoxOmbroDir"
+                    android:layout_below="@+id/checkBoxOmbroEsq"
+                    android:layout_toRightOf="@+id/imageView"
+                    android:layout_toEndOf="@+id/imageView"
+                    android:textSize="12sp"
+                    android:background="@color/white"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Peito"
+                    android:id="@+id/checkBoxPeito"
+                    android:layout_below="@+id/checkBoxOmbroDir"
+                    android:layout_toRightOf="@+id/imageView"
+                    android:layout_toEndOf="@+id/imageView"
+                    android:textSize="12sp"
+                    android:background="@color/white"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Braço - Esquerdo"
+                    android:id="@+id/checkBoxBracoEsq"
+                    android:layout_below="@+id/checkBoxPeito"
+                    android:layout_toRightOf="@+id/imageView"
+                    android:layout_toEndOf="@+id/imageView"
+                    android:textSize="12sp"
+                    android:background="@color/white"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Braço Direito"
+                    android:id="@+id/checkBoxBracoDir"
+                    android:layout_below="@+id/checkBoxBracoEsq"
+                    android:layout_toRightOf="@+id/imageView"
+                    android:layout_toEndOf="@+id/imageView"
+                    android:textSize="12sp"
+                    android:background="@color/white"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cotovelo - Esquerdo"
+                    android:id="@+id/checkBoxCotoveloEsq"
+                    android:textSize="12sp"
+                    android:background="@color/white"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignTop="@+id/linearLayout"
+                android:layout_toRightOf="@+id/linearLayout"
+                android:layout_toEndOf="@+id/linearLayout"
+                android:background="@color/white"
+                android:id="@+id/linearLayout2">
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cotovelo - Direito"
+                    android:id="@+id/checkBoxCotoveloDir"
+                    android:textSize="12sp"
+                    android:background="@color/white"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Antebraço - Esquerdo"
+                    android:id="@+id/checkBoxAnteBracoEsq"
+                    android:textSize="12sp"
+                    android:background="@color/white"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Antebraço - Direito"
+                    android:id="@+id/checkBoxAnteBracoDir"
+                    android:textSize="12sp"
+                    android:background="@color/white"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Punho - Esquerdo"
+                    android:id="@+id/checkBoxPunhoEsq"
+                    android:textSize="12sp"
+                    android:background="@color/white"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Punho - Direito"
+                    android:id="@+id/checkBoxPunhoDir"
+                    android:textSize="12sp"
+                    android:background="@color/white"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mão - Esquerda"
+                    android:id="@+id/checkBoxMaoEsq"
+                    android:textSize="12sp"
+                    android:background="@color/white"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mão - Direita"
+                    android:id="@+id/checkBoxMaoDir"
+                    android:textSize="12sp"
+                    android:background="@color/white"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Abdômen"
+                    android:id="@+id/checkBoxAbdomen"
+                    android:textSize="12sp"
+                    android:background="@color/white"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cintura - Esquerda"
+                    android:id="@+id/checkBoxCinturaEsq"
+                    android:textSize="12sp"
+                    android:background="@color/white"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cintura - Direita"
+                    android:id="@+id/checkBoxCinturaDir"
+                    android:textSize="12sp"
+                    android:background="@color/white"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/linearLayout2"
+                android:layout_toEndOf="@+id/linearLayout2"
+                android:background="@color/white">
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Coxa - Esquerda"
+                    android:id="@+id/checkBoxCoxaEsq"
+                    android:textSize="12sp"
+                    android:background="@color/white"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Coxa - Direita"
+                    android:id="@+id/checkBoxCoxaDir"
+                    android:textSize="12sp"
+                    android:background="@color/white"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Joelho - Esquerdo"
+                    android:id="@+id/checkBoxJoelhoEsq"
+                    android:textSize="12sp"
+                    android:background="@color/white"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Joelho - Direito"
+                    android:id="@+id/checkBoxJoelhoDir"
+                    android:textSize="12sp"
+                    android:background="@color/white"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Panturrilha - Esquerda"
+                    android:id="@+id/checkBoxPanturrilhaEsq"
+                    android:textSize="12sp"
+                    android:background="@color/white"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Panturrilha - Direita"
+                    android:id="@+id/checkBoxPanturrilhaDir"
+                    android:textSize="12sp"
+                    android:background="@color/white"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New CheckBox"
+                    android:id="@+id/checkBox"
+                    android:textSize="12sp"
+                    android:background="@color/white"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New CheckBox"
+                    android:id="@+id/checkBox2"
+                    android:textSize="12sp"
+                    android:background="@color/white"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pé - Esquerdo"
+                    android:id="@+id/checkBoxPeEsq"
+                    android:textSize="12sp"
+                    android:background="@color/white"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pé - Direito"
+                    android:id="@+id/checkBoxPeDir"
+                    android:textSize="12sp"
+                    android:background="@color/white"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="false"
+                android:background="@color/white"
+                android:id="@+id/linearLayoutCorpo">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageView"
+                    android:src="@drawable/frente"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:background="@color/white"
+                    />
+
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gravar"
+                    android:id="@+id/buttonGravar"
+                    android:gravity="center_horizontal"/>
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
 
 </RelativeLayout>

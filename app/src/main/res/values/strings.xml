@@ -2,8 +2,8 @@
     <string name="app_name">Diario de Dor</string>
 
     <string name="Corpo">Corpo</string>
-    <string name="Formulario">Formulário</string>
-    <string name="Formulario2">Formulário 2</string>
+    <string name="Formulario">Destalhes da dor</string>
+    <string name="Formulario2">Informações do paciente</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -14,4 +14,8 @@
     <string name="title_activity_tela_respostas">TelaRespostas</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_tela_formulario">TelaFormulario</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_tela_costas">TelaCostas</string>
 </resources>

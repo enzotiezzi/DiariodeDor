@@ -9,10 +9,104 @@
                 tools:context="diariodedor.pucsp.com.diariodedor.Fragments.TelaFormularioFragment"
                 android:background="@color/white">
 
-    <TextView
-        android:text="Formulário"
+    <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/white"/>
+        android:id="@+id/scrollView3">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:minWidth="350sp"
+            android:minHeight="350sp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Diário de dor"
+                android:id="@+id/textView19"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:autoText="false"
+                android:background="@color/white"/>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/editTextNome"
+                android:layout_below="@+id/textView19"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:hint="Nome"/>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/editTextProfissao"
+                android:layout_below="@+id/editTextNome"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:hint="Profissão"/>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/editTextEscolaridade"
+                android:layout_below="@+id/editTextProfissao"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:hint="Escolaridade"/>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/editTextDiagnostico"
+                android:layout_below="@+id/editTextEscolaridade"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:hint="Diagnóstico"/>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/editTextTempoDoenca"
+                android:layout_below="@+id/editTextDiagnostico"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:hint="Tempo da doença"/>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/editTextMelhorHorario"
+                android:layout_below="@+id/editTextTempoDoenca"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:hint="Melhor horário para preencher o diário"
+                android:layout_alignRight="@+id/textView19"
+                android:layout_alignEnd="@+id/textView19"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gravar"
+                android:id="@+id/buttonGravar"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
+    </ScrollView>
 </RelativeLayout>
