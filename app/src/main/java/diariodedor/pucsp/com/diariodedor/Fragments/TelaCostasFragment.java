@@ -77,6 +77,12 @@ public class TelaCostasFragment extends Fragment
     private CheckBox checkBoxCostasPeEsq;
     private CheckBox checkBoxCostasPeDir;
 
+    // Costas
+    private CheckBox checkBoxCostas;
+
+    // Lombar
+    private CheckBox checkBoxCostasLombar;
+
 
     public TelaCostasFragment()
     {
@@ -178,6 +184,14 @@ public class TelaCostasFragment extends Fragment
 
         checkBoxCostasPeDir = (CheckBox)v.findViewById(R.id.checkBoxCostasPeDir);
         checkBoxCostasPeDir.setOnCheckedChangeListener(checkedChanged);
+
+        // Costas
+        checkBoxCostas = (CheckBox)v.findViewById(R.id.checkBoxCostas);
+        checkBoxCostas.setOnCheckedChangeListener(checkedChanged);
+
+        // Lombar
+        checkBoxCostasLombar = (CheckBox)v.findViewById(R.id.checkBoxCostasLombar);
+        checkBoxCostasLombar.setOnCheckedChangeListener(checkedChanged);
 
     }
 

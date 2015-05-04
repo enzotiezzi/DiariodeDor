@@ -253,6 +253,14 @@ public class TelaCorpoController
                 case R.id.checkBoxCostasPeDir:
                     adicionar(checkBoxId, "Pé e Tornozelo Direito Costas");
                     break;
+
+                case R.id.checkBoxCostas:
+                    adicionar(checkBoxId, "Costas");
+                    break;
+
+                case R.id.checkBoxCostasLombar:
+                    adicionar(checkBoxId, "Lombar");
+                    break;
             }
         }
     }
@@ -419,12 +427,17 @@ public class TelaCorpoController
     public String retornaMensagem()
     {
         String mensagem = "";
+        Paciente paciente = lerInfoPaciente();
 
-        mensagem = "Partes do Corpo que estão doendo: \n";
+        mensagem += "Paciente: " + paciente.getNome() + "\n\n";
+
+        mensagem += "Partes do Corpo que estão doendo: \n";
         for(ParteCorpo p :partesCorpo)
         {
             mensagem += p.getNome() +"\n";
         }
+
+        mensagem += "\n";
 
         mensagem += "Intensidade da dor: " + inforDor.getIntensidadeDor() + "\n";
         mensagem += "Nível de ansiedade: " + inforDor.getAnsioso() + "\n";
@@ -433,7 +446,10 @@ public class TelaCorpoController
         mensagem += "Qualidade do sono: " + inforDor.getDormir() + "\n";
         mensagem += "Se exercitou: " + (inforDor.isExercicio() ? "Sim":"Não") + "\n";
 
+        mensagem += "\n";
+
         mensagem += "Lista de remédios tomados: " + inforDor.getRemediosDor() + "\n";
+        mensagem += "\n";
         mensagem += "Obersavações: " + inforDor.getObs() + "\n";
 
         return mensagem;
@@ -442,8 +458,10 @@ public class TelaCorpoController
     public String retornaAssunto()
     {
         Calendar c = Calendar.getInstance();
+        Paciente p = lerInfoPaciente();
 
-        return "Exame: "+ c.get(Calendar.DAY_OF_MONTH)+
+        return "Exame: " + p.getNome() +
+                " - "+ c.get(Calendar.DAY_OF_MONTH)+
                 "/" + (c.get(Calendar.MONTH)+1) +
                 "/" + c.get(Calendar.YEAR) +
                 " - " + c.get(Calendar.HOUR) +

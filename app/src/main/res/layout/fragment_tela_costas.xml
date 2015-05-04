@@ -227,11 +227,12 @@
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="fill_parent"
                 android:layout_alignParentTop="true"
                 android:layout_toRightOf="@+id/linearLayout5"
                 android:layout_toEndOf="@+id/linearLayout5"
-                android:background="@color/white">
+                android:background="@color/white"
+                android:layout_alignBottom="@+id/linearLayout5">
 
                 <CheckBox
                     android:layout_width="wrap_content"
@@ -240,6 +241,22 @@
                     android:id="@+id/checkBoxCostasPeDir"
                     android:background="@color/white"
                     android:textSize="12sp"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Costas"
+                    android:id="@+id/checkBoxCostas"
+                    android:textSize="12sp"
+                    android:background="@color/white"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lombar"
+                    android:id="@+id/checkBoxCostasLombar"
+                    android:textSize="12sp"
+                    android:background="@color/white"/>
             </LinearLayout>
 
         </RelativeLayout>
