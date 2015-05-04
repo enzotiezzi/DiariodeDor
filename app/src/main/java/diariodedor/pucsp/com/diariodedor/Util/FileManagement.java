@@ -55,8 +55,11 @@ public class FileManagement
         {
             file.createNewFile();
         }
-
-        //TODO criar logica de edicao do arquivo
+        else
+        {
+            file.delete();
+            file.createNewFile();
+        }
 
         return file;
     }
