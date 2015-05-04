@@ -2,8 +2,10 @@ package diariodedor.pucsp.com.diariodedor.Controller;
 
 import android.content.Context;
 import android.widget.CheckBox;
+import android.widget.RadioGroup;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
 
@@ -59,7 +61,7 @@ public class TelaCorpoController
                     break;
 
                 case R.id.checkBoxPescoco:
-                    adicionar(checkBoxId, "PescoÁo");
+                    adicionar(checkBoxId, "Pesco√ßo");
                     break;
 
                 case R.id.checkBoxOmbroEsq:
@@ -71,15 +73,15 @@ public class TelaCorpoController
                     break;
 
                 case R.id.checkBoxTorax:
-                    adicionar(checkBoxId, "TÛrax");
+                    adicionar(checkBoxId, "T√≥rax");
                     break;
 
                 case R.id.checkBoxBracoEsq:
-                    adicionar(checkBoxId, "BraÁo Esquerdo");
+                    adicionar(checkBoxId, "Bra√ßo Esquerdo");
                     break;
 
                 case R.id.checkBoxBracoDir:
-                    adicionar(checkBoxId, "BraÁo Direito");
+                    adicionar(checkBoxId, "Bra√ßo Direito");
                     break;
 
                 case R.id.checkBoxCotoveloEsq:
@@ -91,23 +93,23 @@ public class TelaCorpoController
                     break;
 
                 case  R.id.checkBoxAnteBracoEsq:
-                    adicionar(checkBoxId, "AntebraÁo Esquerdo");
+                    adicionar(checkBoxId, "Antebra√ßo Esquerdo");
                     break;
 
                 case R.id.checkBoxAnteBracoDir:
-                    adicionar(checkBoxId, "AntebraÁo Direito");
+                    adicionar(checkBoxId, "Antebra√ßo Direito");
                     break;
 
                 case R.id.checkBoxMaoEsq:
-                    adicionar(checkBoxId, "Punho e M„o Esquerda");
+                    adicionar(checkBoxId, "Punho e M√£o Esquerda");
                     break;
 
                 case R.id.checkBoxMaoDir:
-                    adicionar(checkBoxId, "Punho e M„o Direita");
+                    adicionar(checkBoxId, "Punho e M√£o Direita");
                     break;
 
                 case R.id.checkBoxAbdomen:
-                    adicionar(checkBoxId, "AbdÙmen");
+                    adicionar(checkBoxId, "Abd√¥men");
                     break;
 
                 case R.id.checkBoxQuadrilEsq:
@@ -143,11 +145,11 @@ public class TelaCorpoController
                     break;
 
                 case R.id.checkBoxPeEsq:
-                    adicionar(checkBoxId, "PÈ e Tornozelo Esquerdo");
+                    adicionar(checkBoxId, "P√© e Tornozelo Esquerdo");
                     break;
 
                 case R.id.checkBoxPeDir:
-                    adicionar(checkBoxId, "PÈ e Tornozelo Direito");
+                    adicionar(checkBoxId, "P√© e Tornozelo Direito");
                     break;
             }
         }
@@ -162,7 +164,7 @@ public class TelaCorpoController
             switch(checkBoxId)
             {
                 case R.id.checkBoxCostasPescoco:
-                    adicionar(checkBoxId, "PescoÁo Costas");
+                    adicionar(checkBoxId, "Pesco√ßo Costas");
                     break;
 
                 case R.id.checkBoxCostasOmbroEsq:
@@ -174,11 +176,11 @@ public class TelaCorpoController
                     break;
 
                 case R.id.checkBoxCostasBracoEsq:
-                    adicionar(checkBoxId, "BraÁo Esquerdo Costas");
+                    adicionar(checkBoxId, "Bra√ßo Esquerdo Costas");
                     break;
 
                 case R.id.checkBoxCostasBracoDir:
-                    adicionar(checkBoxId, "BraÁo Direito Costas");
+                    adicionar(checkBoxId, "Bra√ßo Direito Costas");
                     break;
 
                 case R.id.checkBoxCostasCotoveloEsq:
@@ -190,19 +192,19 @@ public class TelaCorpoController
                     break;
 
                 case R.id.checkBoxCostasAntebracoEsq:
-                    adicionar(checkBoxId, "AntebraÁo Esquerdo Costas");
+                    adicionar(checkBoxId, "Antebra√ßo Esquerdo Costas");
                     break;
 
                 case R.id.checkBoxCostasAntebracoDir:
-                    adicionar(checkBoxId, "AntebraÁo Direito Costas");
+                    adicionar(checkBoxId, "Antebra√ßo Direito Costas");
                     break;
 
                 case R.id.checkBoxCostasMaoEsq:
-                    adicionar(checkBoxId, "Punho e M„o Esquerda Costas");
+                    adicionar(checkBoxId, "Punho e M√£o Esquerda Costas");
                     break;
 
                 case R.id.checkBoxCostasMaoDir:
-                    adicionar(checkBoxId, "Punho e M„o Direita Costas");
+                    adicionar(checkBoxId, "Punho e M√£o Direita Costas");
                     break;
 
                 case R.id.checkBoxCostasQuadrilEsq:
@@ -238,11 +240,11 @@ public class TelaCorpoController
                     break;
 
                 case R.id.checkBoxCostasPeEsq:
-                    adicionar(checkBoxId, "PÈ e Tornozelo Esquerdo Costas");
+                    adicionar(checkBoxId, "P√© e Tornozelo Esquerdo Costas");
                     break;
 
                 case R.id.checkBoxCostasPeDir:
-                    adicionar(checkBoxId, "PÈ e Tornozelo Direito Costas");
+                    adicionar(checkBoxId, "P√© e Tornozelo Direito Costas");
                     break;
             }
         }
@@ -266,5 +268,178 @@ public class TelaCorpoController
         }
     }
 
+    public void setarInfo(int radioGroupId, int radioId)
+    {
+        byte valor = 0;
+        switch (radioId)
+        {
+            case R.id.radioButton:
+            case R.id.radioButton12:
+            case R.id.radioButton78:
+            case R.id.radioButton89:
+            case R.id.radioButton100:
+                valor = 0;
+                break;
 
+            case R.id.radioButton2:
+            case R.id.radioButton13:
+            case R.id.radioButton79:
+            case R.id.radioButton90:
+            case R.id.radioButton101:
+                valor = 1;
+                break;
+
+            case R.id.radioButton3:
+            case R.id.radioButton14:
+            case R.id.radioButton80:
+            case R.id.radioButton91:
+            case R.id.radioButton102:
+                valor = 2;
+                break;
+
+            case R.id.radioButton4:
+            case R.id.radioButton15:
+            case R.id.radioButton81:
+            case R.id.radioButton92:
+            case R.id.radioButton103:
+                valor = 3;
+                break;
+
+            case R.id.radioButton5:
+            case R.id.radioButton16:
+            case R.id.radioButton82:
+            case R.id.radioButton93:
+            case R.id.radioButton104:
+                valor = 4;
+                break;
+
+            case R.id.radioButton6:
+            case R.id.radioButton17:
+            case R.id.radioButton83:
+            case R.id.radioButton94:
+            case R.id.radioButton105:
+                valor = 5;
+                break;
+
+            case R.id.radioButton7:
+            case R.id.radioButton18:
+            case R.id.radioButton84:
+            case R.id.radioButton95:
+            case R.id.radioButton106:
+                valor = 6;
+                break;
+
+            case R.id.radioButton8:
+            case R.id.radioButton19:
+            case R.id.radioButton85:
+            case R.id.radioButton96:
+            case R.id.radioButton107:
+                valor = 7;
+                break;
+
+            case R.id.radioButton9:
+            case R.id.radioButton20:
+            case R.id.radioButton86:
+            case R.id.radioButton97:
+            case R.id.radioButton108:
+                valor = 8;
+                break;
+
+            case R.id.radioButton10:
+            case R.id.radioButton76:
+            case R.id.radioButton87:
+            case R.id.radioButton98:
+            case R.id.radioButton109:
+                valor = 9;
+                break;
+
+            case R.id.radioButton11:
+            case R.id.radioButton77:
+            case R.id.radioButton88:
+            case R.id.radioButton99:
+            case R.id.radioButton110:
+                valor = 10;
+                break;
+
+            case R.id.radioButtonSim:
+                valor = 1;
+                break;
+
+            case R.id.radioButtonNao:
+                valor = 0;
+                break;
+        }
+
+        setaInfoProp(radioGroupId, valor);
+    }
+
+    public void setaInfoProp(int radioGroupId, byte valor)
+    {
+        switch(radioGroupId)
+        {
+            case R.id.radioGroup2:
+                inforDor.setIntensidadeDor(valor);
+                break;
+
+            case R.id.radioGroup3:
+                inforDor.setAnsioso(valor);
+                break;
+
+            case R.id.radioGroup4:
+                inforDor.setDeprimido(valor);
+                break;
+
+            case R.id.radioGroup5:
+                inforDor.setCansado(valor);
+                break;
+
+            case R.id.radioGroup6:
+                inforDor.setDormir(valor);
+                break;
+
+            case R.id.radioGroup7:
+                inforDor.setExercicio(valor == 1);
+                break;
+        }
+    }
+
+    public void setRemedioAndObs(String remedios, String obs)
+    {
+        inforDor.setRemediosDor(remedios);
+        inforDor.setObs(obs);
+    }
+
+    public String retornaMensagem()
+    {
+        String mensagem = "";
+
+        mensagem = "Partes do Corpo que est√£o doendo: \n";
+        for(ParteCorpo p :partesCorpo)
+        {
+            mensagem += p.getNome() +"\n";
+        }
+
+        mensagem += "Intensidade da dor: " + inforDor.getIntensidadeDor() + "\n";
+        mensagem += "N√≠vel de ansiedade: " + inforDor.getAnsioso() + "\n";
+        mensagem += "N√≠vel de depress√£o: " + inforDor.getDeprimido() + "\n";
+        mensagem += "N√≠vel de cansa√ßo: " + inforDor.getCansado() + "\n";
+        mensagem += "Qualidade do sono: " + inforDor.getDormir() + "\n";
+        mensagem += "Se exercitou: " + (inforDor.isExercicio() ? "Sim":"N√£o") + "\n";
+
+        mensagem += "Lista de rem√©dios tomados: " + inforDor.getRemediosDor() + "\n";
+        mensagem += "Obersava√ß√µes: " + inforDor.getObs() + "\n";
+
+        return mensagem;
+    }
+
+    public String retornaAssunto()
+    {
+        Calendar c = Calendar.getInstance();
+
+        return "Exame: "+ c.get(Calendar.DAY_OF_MONTH)+
+                "/" + c.get(Calendar.MONTH) +
+                "/" + c.get(Calendar.YEAR) +
+                " - " + c.get(Calendar.HOUR) +
+                ":" + c.get(Calendar.MINUTE);
+    }
 }

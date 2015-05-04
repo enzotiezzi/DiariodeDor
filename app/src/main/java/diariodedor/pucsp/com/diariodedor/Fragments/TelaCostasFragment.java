@@ -91,9 +91,11 @@ public class TelaCostasFragment extends Fragment
         initialize();
         telaCorpoController = new TelaCorpoController(v.getContext());
 
-        ParteCorpo[] partesCorpo = new Gson().fromJson(getArguments().getString("partesCorpo"), ParteCorpo[].class);
-        telaCorpoController.addPartesCorpo(Arrays.asList(partesCorpo));
-
+        if(getArguments() != null)
+        {
+            ParteCorpo[] partesCorpo = new Gson().fromJson(getArguments().getString("partesCorpo"), ParteCorpo[].class);
+            telaCorpoController.addPartesCorpo(Arrays.asList(partesCorpo));
+        }
         return v;
     }
 

@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioGroup;
 
 import com.google.gson.Gson;
@@ -16,6 +18,7 @@ import java.util.Arrays;
 import diariodedor.pucsp.com.diariodedor.Controller.TelaCorpoController;
 import diariodedor.pucsp.com.diariodedor.Model.ParteCorpo;
 import diariodedor.pucsp.com.diariodedor.R;
+import diariodedor.pucsp.com.diariodedor.Util.EmailManagement;
 
 
 /**
@@ -36,6 +39,13 @@ public class TelaRespostasFragment extends Fragment
     private RadioGroup radioGroup5;
     private RadioGroup radioGroup6;
     private RadioGroup radioGroup7;
+
+    // EditTexts
+    private EditText editTextRemedios;
+    private EditText editTextObservacoes;
+
+    // Buttons
+    private Button buttonGravarEnviar;
 
     public TelaRespostasFragment()
     {
@@ -61,6 +71,14 @@ public class TelaRespostasFragment extends Fragment
 
         radioGroup7 = (RadioGroup)v.findViewById(R.id.radioGroup7);
         radioGroup7.setOnCheckedChangeListener(checkedChangeListener);
+
+        // Edittexts
+        editTextRemedios = (EditText)v.findViewById(R.id.editTextRemedios);
+        editTextObservacoes = (EditText)v.findViewById(R.id.editTextObservacoes);
+
+        // Buttons
+        buttonGravarEnviar = (Button)v.findViewById(R.id.buttonGravarEnviar);
+        buttonGravarEnviar.setOnClickListener(buttonGravarEnviar_Click);
     }
 
     @Override
@@ -73,10 +91,12 @@ public class TelaRespostasFragment extends Fragment
 
         telaCorpoController = new TelaCorpoController(v.getContext());
 
-        ParteCorpo[] partesCorpo = new Gson().fromJson(getArguments().getString("partesCorpo"), ParteCorpo[].class);
+        if(getArguments() != null)
+        {
+            ParteCorpo[] partesCorpo = new Gson().fromJson(getArguments().getString("partesCorpo"), ParteCorpo[].class);
 
-        telaCorpoController.addPartesCorpo(Arrays.asList(partesCorpo));
-
+            telaCorpoController.addPartesCorpo(Arrays.asList(partesCorpo));
+        }
         return v;
     }
 
@@ -91,7 +111,23 @@ public class TelaRespostasFragment extends Fragment
         @Override
         public void onCheckedChanged(RadioGroup group, int checkedId)
         {
+            telaCorpoController.setarInfo(group.getId(), checkedId);
+        }
+    };
 
+    View.OnClickListener buttonGravarEnviar_Click = new View.OnClickListener()
+    {
+        @Override
+        public void onClick(View v)
+        {
+            telaCorpoController.setRemedioAndObs(editTextRemedios.getText().toString(), editTextObservacoes.getText().toString());
+            EmailManagement emailManagement = new EmailManagement(
+                    telaCorpoController.retornaAssunto(),
+                    "enzo_tiezzi@hotmail.com",
+                    telaCorpoController.retornaMensagem(),
+                    v.getContext());
+
+            emailManagement.enviarEmail();
         }
     };
 }

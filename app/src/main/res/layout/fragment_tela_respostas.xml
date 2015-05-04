@@ -892,6 +892,13 @@
                         android:lines="5"
                         android:maxLines="5"
                         android:hint="Digite aqui"/>
+
+                    <Button
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Gravar e Enviar"
+                        android:id="@+id/buttonGravarEnviar"/>
                 </LinearLayout>
 
                 <LinearLayout
