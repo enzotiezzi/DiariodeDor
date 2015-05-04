@@ -7,6 +7,8 @@ import com.google.gson.Gson;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -45,7 +47,7 @@ public class FileManagement
         }
     }
 
-    public File criarArquivoInfoPaciente() throws IOException
+    private File criarArquivoInfoPaciente() throws IOException
     {
         File file = new File(new File(STORAGE_PATH, PACIENTE_PATH), PACIENTE_ARQUIVO);
 
@@ -59,15 +61,46 @@ public class FileManagement
         return file;
     }
 
-    public void escreverInfoPaciente(File infos, Paciente p) throws IOException
+    private void escreverInfoPaciente(File infos, Paciente p) throws IOException
     {
-        FileWriter fileWriter = new FileWriter(infos, true);
-        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
         String infomacoes = new Gson().toJson(p);
 
-        bufferedWriter.append(infomacoes);
+        escreverArquivo(infos, infomacoes);
+    }
+
+    private void escreverArquivo(File infos, String conteudo) throws IOException
+    {
+
+        FileWriter fileWriter = new FileWriter(infos, true);
+        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+
+        bufferedWriter.append(conteudo);
         bufferedWriter.flush();
         bufferedWriter.close();
+    }
+
+    private String lerArquivo(File arquivo) throws IOException
+    {
+        String linha = "";
+        StringBuilder stringBuilder = new StringBuilder();
+
+        if (arquivo.exists())
+        {
+            FileReader fileReader = new FileReader(arquivo);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+            while ((linha = bufferedReader.readLine()) != null)
+                stringBuilder.append(linha);
+
+            bufferedReader.close();
+        }
+
+        return stringBuilder.toString();
+    }
+
+    public String lerInfoPaciente() throws IOException
+    {
+        return lerArquivo(new File(new File(STORAGE_PATH, PACIENTE_PATH), PACIENTE_ARQUIVO));
     }
 }

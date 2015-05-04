@@ -8,7 +8,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import diariodedor.pucsp.com.diariodedor.Controller.TelaCorpoController;
 import diariodedor.pucsp.com.diariodedor.Controller.TelaFormularioController;
+import diariodedor.pucsp.com.diariodedor.Model.Paciente;
 import diariodedor.pucsp.com.diariodedor.R;
 
 
@@ -17,6 +19,10 @@ import diariodedor.pucsp.com.diariodedor.R;
  */
 public class TelaFormularioFragment extends Fragment
 {
+
+    // Controllers
+    private TelaCorpoController telaCorpoController;
+
     // Views
     private View v;
 
@@ -42,6 +48,10 @@ public class TelaFormularioFragment extends Fragment
 
         initialize();
 
+        telaCorpoController = new TelaCorpoController(v.getContext());
+
+        carregarPaciente();
+
         return v;
     }
 
@@ -49,6 +59,21 @@ public class TelaFormularioFragment extends Fragment
     {
         TelaFormularioFragment fragment = new TelaFormularioFragment();
         return fragment;
+    }
+
+    public void carregarPaciente()
+    {
+        Paciente p = telaCorpoController.lerInfoPaciente();
+
+        if (p != null)
+        {
+            editTextNome.setText(p.getNome());
+            editTextProfissao.setText(p.getProfissao());
+            editTextEscolaridade.setText(p.getEscolaridade());
+            editTextDiagnostico.setText(p.getDiagnostico());
+            editTextTempoDoenca.setText(p.getTempoDoenca());
+            editTextMelhorHorario.setText(p.getMelhorHorario());
+        }
     }
 
     public void initialize()

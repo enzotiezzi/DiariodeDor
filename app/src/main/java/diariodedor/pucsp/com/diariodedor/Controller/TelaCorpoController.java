@@ -4,14 +4,21 @@ import android.content.Context;
 import android.widget.CheckBox;
 import android.widget.RadioGroup;
 
+import com.google.gson.Gson;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
 
 import diariodedor.pucsp.com.diariodedor.Model.InforDor;
+import diariodedor.pucsp.com.diariodedor.Model.Paciente;
 import diariodedor.pucsp.com.diariodedor.Model.ParteCorpo;
 import diariodedor.pucsp.com.diariodedor.R;
+import diariodedor.pucsp.com.diariodedor.Util.FileManagement;
+import diariodedor.pucsp.com.diariodedor.Util.ShowInformation;
 
 /**
  * Created by enzo on 02/05/2015.
@@ -441,5 +448,31 @@ public class TelaCorpoController
                 "/" + c.get(Calendar.YEAR) +
                 " - " + c.get(Calendar.HOUR) +
                 ":" + c.get(Calendar.MINUTE);
+    }
+
+    public Paciente lerInfoPaciente()
+    {
+        Paciente p = null;
+        try
+        {
+            FileManagement fileManagement = new FileManagement();
+            String paciente = fileManagement.lerInfoPaciente();
+
+            p = new Gson().fromJson(paciente, Paciente.class);
+        }
+        catch(FileNotFoundException e)
+        {
+            ShowInformation.showToast("Você ainda não possui arquivo de paciente, por favor crie um", Context);
+        }
+        catch(IOException e)
+        {
+            ShowInformation.showToast("Houve um erro ao ler as informações", Context);
+        }
+        catch(Exception e)
+        {
+            ShowInformation.showToast(e.getMessage(), Context);
+        }
+
+        return p;
     }
 }
