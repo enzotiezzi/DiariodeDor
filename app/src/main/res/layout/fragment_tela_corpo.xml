@@ -23,7 +23,6 @@
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_toLeftOf="@+id/imageView"
                 android:background="@color/white"
                 android:id="@+id/linearLayout"
                 android:layout_toEndOf="@+id/linearLayoutCorpo">
@@ -42,8 +41,8 @@
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Maxiliar - Esquerda"
-                    android:id="@+id/checkBoxMaxilarEsq"
+                    android:text="Mandíbula - Esquerda"
+                    android:id="@+id/checkBoxMandibulaEsq"
                     android:layout_below="@+id/checkBoxRosto"
                     android:layout_toRightOf="@+id/imageView"
                     android:layout_toEndOf="@+id/imageView"
@@ -53,9 +52,9 @@
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Maxilar - Direita"
-                    android:id="@+id/checkBoxMaxilarDir"
-                    android:layout_below="@+id/checkBoxMaxilarEsq"
+                    android:text="Mandíbula - Direita"
+                    android:id="@+id/checkBoxMandibulaDir"
+                    android:layout_below="@+id/checkBoxMandibulaEsq"
                     android:layout_toRightOf="@+id/imageView"
                     android:layout_toEndOf="@+id/imageView"
                     android:textSize="12sp"
@@ -66,7 +65,7 @@
                     android:layout_height="wrap_content"
                     android:text="Pescoço"
                     android:id="@+id/checkBoxPescoco"
-                    android:layout_below="@+id/checkBoxMaxilarDir"
+                    android:layout_below="@+id/checkBoxMandibulaDir"
                     android:layout_toRightOf="@+id/imageView"
                     android:layout_toEndOf="@+id/imageView"
                     android:textSize="12sp"
@@ -97,8 +96,8 @@
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Peito"
-                    android:id="@+id/checkBoxPeito"
+                    android:text="Tórax"
+                    android:id="@+id/checkBoxTorax"
                     android:layout_below="@+id/checkBoxOmbroDir"
                     android:layout_toRightOf="@+id/imageView"
                     android:layout_toEndOf="@+id/imageView"
@@ -110,7 +109,7 @@
                     android:layout_height="wrap_content"
                     android:text="Braço - Esquerdo"
                     android:id="@+id/checkBoxBracoEsq"
-                    android:layout_below="@+id/checkBoxPeito"
+                    android:layout_below="@+id/checkBoxTorax"
                     android:layout_toRightOf="@+id/imageView"
                     android:layout_toEndOf="@+id/imageView"
                     android:textSize="12sp"
@@ -173,23 +172,7 @@
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Punho - Esquerdo"
-                    android:id="@+id/checkBoxPunhoEsq"
-                    android:textSize="12sp"
-                    android:background="@color/white"/>
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Punho - Direito"
-                    android:id="@+id/checkBoxPunhoDir"
-                    android:textSize="12sp"
-                    android:background="@color/white"/>
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Mão - Esquerda"
+                    android:text="Punho e Mão - Esquerda"
                     android:id="@+id/checkBoxMaoEsq"
                     android:textSize="12sp"
                     android:background="@color/white"/>
@@ -197,7 +180,7 @@
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Mão - Direita"
+                    android:text="Punho e Mão - Direita"
                     android:id="@+id/checkBoxMaoDir"
                     android:textSize="12sp"
                     android:background="@color/white"/>
@@ -213,16 +196,16 @@
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Cintura - Esquerda"
-                    android:id="@+id/checkBoxCinturaEsq"
+                    android:text="Quadril - Esquerda"
+                    android:id="@+id/checkBoxQuadrilEsq"
                     android:textSize="12sp"
                     android:background="@color/white"/>
 
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Cintura - Direita"
-                    android:id="@+id/checkBoxCinturaDir"
+                    android:text="Quadril - Direita"
+                    android:id="@+id/checkBoxQuadrilDir"
                     android:textSize="12sp"
                     android:background="@color/white"/>
             </LinearLayout>
@@ -271,39 +254,23 @@
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Panturrilha - Esquerda"
-                    android:id="@+id/checkBoxPanturrilhaEsq"
+                    android:text="Perna - Esquerda"
+                    android:id="@+id/checkBoxPernaEsq"
                     android:textSize="12sp"
                     android:background="@color/white"/>
 
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Panturrilha - Direita"
-                    android:id="@+id/checkBoxPanturrilhaDir"
+                    android:text="Perna - Direita"
+                    android:id="@+id/checkBoxPernaDir"
                     android:textSize="12sp"
                     android:background="@color/white"/>
 
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="New CheckBox"
-                    android:id="@+id/checkBox"
-                    android:textSize="12sp"
-                    android:background="@color/white"/>
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="New CheckBox"
-                    android:id="@+id/checkBox2"
-                    android:textSize="12sp"
-                    android:background="@color/white"/>
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Pé - Esquerdo"
+                    android:text="Pé e Tornozelo - Esquerdo"
                     android:id="@+id/checkBoxPeEsq"
                     android:textSize="12sp"
                     android:background="@color/white"/>
@@ -311,7 +278,7 @@
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Pé - Direito"
+                    android:text="Pé e Tornozelo - Direito"
                     android:id="@+id/checkBoxPeDir"
                     android:textSize="12sp"
                     android:background="@color/white"/>

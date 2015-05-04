@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 
+import diariodedor.pucsp.com.diariodedor.Controller.TelaFormularioController;
 import diariodedor.pucsp.com.diariodedor.R;
 
 
@@ -15,9 +17,19 @@ import diariodedor.pucsp.com.diariodedor.R;
  */
 public class TelaFormularioFragment extends Fragment
 {
+    // Views
     private View v;
 
+    // EditTexts
     private EditText editTextNome;
+    private EditText editTextProfissao;
+    private EditText editTextEscolaridade;
+    private EditText editTextDiagnostico;
+    private EditText editTextTempoDoenca;
+    private EditText editTextMelhorHorario;
+
+    //Buttons
+    private Button buttonGravar;
 
     public TelaFormularioFragment()
     {
@@ -28,7 +40,7 @@ public class TelaFormularioFragment extends Fragment
     {
         v =  inflater.inflate(R.layout.fragment_tela_formulario, container, false);
 
-        editTextNome = (EditText)v.findViewById(R.id.editTextNome);
+        initialize();
 
         return v;
     }
@@ -38,4 +50,50 @@ public class TelaFormularioFragment extends Fragment
         TelaFormularioFragment fragment = new TelaFormularioFragment();
         return fragment;
     }
+
+    public void initialize()
+    {
+        // Nome
+        editTextNome = (EditText)v.findViewById(R.id.editTextNome);
+
+        // Profissao
+        editTextProfissao = (EditText)v.findViewById(R.id.editTextProfissao);
+
+        // Escolaridade
+        editTextEscolaridade = (EditText)v.findViewById(R.id.editTextEscolaridade);
+
+        // Diagnostico
+        editTextDiagnostico = (EditText)v.findViewById(R.id.editTextDiagnostico);
+
+        // Tempo da doenca
+        editTextTempoDoenca = (EditText)v.findViewById(R.id.editTextTempoDoenca);
+
+        // Melhor horario
+        editTextMelhorHorario = (EditText)v.findViewById(R.id.editTextMelhorHorario);
+
+        // Button Gravar
+        buttonGravar = (Button)v.findViewById(R.id.buttonGravar);
+        buttonGravar.setOnClickListener(buttonGravar_Click);
+    }
+
+
+    View.OnClickListener buttonGravar_Click = new View.OnClickListener()
+    {
+        @Override
+        public void onClick(View v)
+        {
+            TelaFormularioController telaFormularioController = new TelaFormularioController(v.getContext());
+
+            telaFormularioController.salvarInfoPaciente
+                    (
+                            editTextNome.getText().toString(),
+                            editTextProfissao.getText().toString(),
+                            editTextEscolaridade.getText().toString(),
+                            editTextDiagnostico.getText().toString(),
+                            editTextTempoDoenca.getText().toString(),
+                            editTextMelhorHorario.getText().toString()
+                    );
+        }
+    };
+
 }
