@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Diario de Dor</string>
+    <string name="app_name">Diário de Dor</string>
 
     <string name="Corpo">Corpo</string>
     <string name="Formulario">Destalhes da dor</string>
@@ -11,11 +11,11 @@
     <string name="action_example">Example action</string>
 
     <string name="action_settings">Settings</string>
-    <string name="title_activity_tela_respostas">TelaRespostas</string>
+    <string name="title_activity_tela_respostas">Tela Respostas</string>
     <string name="hello_world">Hello world!</string>
-    <string name="title_activity_tela_formulario">TelaFormulario</string>
+    <string name="title_activity_tela_formulario">Diário de dor</string>
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_tela_costas">TelaCostas</string>
+    <string name="title_activity_tela_costas">Tela Costas</string>
 </resources>

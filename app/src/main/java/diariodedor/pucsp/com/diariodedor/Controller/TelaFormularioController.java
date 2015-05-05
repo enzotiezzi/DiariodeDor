@@ -21,13 +21,13 @@ public class TelaFormularioController
         this.Context = context;
     }
 
-    public void salvarInfoPaciente(String nome, String profissao, String escolaridade, String diagnostico, String tempoDoenca, String melhorHorario)
+    public void salvarInfoPaciente(String nome, String profissao, String escolaridade, String diagnostico, String tempoDoenca, String melhorHorario, String email)
     {
         try
         {
             PacienteFactory pacienteFactory = new PacienteFactory();
 
-            Paciente p = pacienteFactory.newInstance(nome, profissao, escolaridade, diagnostico, tempoDoenca, melhorHorario);
+            Paciente p = pacienteFactory.newInstance(nome, profissao, escolaridade, diagnostico, tempoDoenca, melhorHorario, email);
 
             FileManagement fileManagement = new FileManagement();
 

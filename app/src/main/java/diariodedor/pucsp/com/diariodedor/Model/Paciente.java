@@ -10,8 +10,9 @@ public class Paciente
     private String Diagnostico;
     private String TempoDoenca;
     private String MelhorHorario;
+    private String EmailMedico;
 
-    public Paciente(String nome, String profissao, String escolaridade, String diagnostico, String tempoDoenca, String melhorHorario)
+    public Paciente(String nome, String profissao, String escolaridade, String diagnostico, String tempoDoenca, String melhorHorario, String emailMedico)
     {
         this.Nome = nome;
         this.Profissao = profissao;
@@ -19,6 +20,7 @@ public class Paciente
         this.Diagnostico = diagnostico;
         this.TempoDoenca = tempoDoenca;
         this.MelhorHorario = melhorHorario;
+        this.EmailMedico = emailMedico;
     }
 
     public String getDiagnostico()
@@ -49,5 +51,10 @@ public class Paciente
     public String getTempoDoenca()
     {
         return TempoDoenca;
+    }
+
+    public String getEmailMedico()
+    {
+        return EmailMedico;
     }
 }

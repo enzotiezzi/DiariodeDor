@@ -10,13 +10,13 @@ public class PacienteFactory
     public PacienteFactory()
     {}
 
-    public Paciente newInstance(String nome, String profissao, String escolaridade, String diagnostico, String tempoDoenca, String melhorHorario)
+    public Paciente newInstance(String nome, String profissao, String escolaridade, String diagnostico, String tempoDoenca, String melhorHorario, String email)
     {
         Paciente p = null;
 
         //TODO validacoes
 
-        p = new Paciente(nome, profissao, escolaridade, diagnostico, tempoDoenca, melhorHorario);
+        p = new Paciente(nome, profissao, escolaridade, diagnostico, tempoDoenca, melhorHorario, email);
 
         return p;
     }

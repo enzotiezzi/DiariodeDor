@@ -33,6 +33,7 @@ public class TelaFormularioFragment extends Fragment
     private EditText editTextDiagnostico;
     private EditText editTextTempoDoenca;
     private EditText editTextMelhorHorario;
+    private EditText editTextEmail;
 
     //Buttons
     private Button buttonGravar;
@@ -73,6 +74,7 @@ public class TelaFormularioFragment extends Fragment
             editTextDiagnostico.setText(p.getDiagnostico());
             editTextTempoDoenca.setText(p.getTempoDoenca());
             editTextMelhorHorario.setText(p.getMelhorHorario());
+            editTextEmail.setText(p.getEmailMedico());
         }
     }
 
@@ -96,6 +98,9 @@ public class TelaFormularioFragment extends Fragment
         // Melhor horario
         editTextMelhorHorario = (EditText)v.findViewById(R.id.editTextMelhorHorario);
 
+        // Email medico
+        editTextEmail = (EditText)v.findViewById(R.id.editTextEmail);
+
         // Button Gravar
         buttonGravar = (Button)v.findViewById(R.id.buttonGravar);
         buttonGravar.setOnClickListener(buttonGravar_Click);
@@ -116,7 +121,8 @@ public class TelaFormularioFragment extends Fragment
                             editTextEscolaridade.getText().toString(),
                             editTextDiagnostico.getText().toString(),
                             editTextTempoDoenca.getText().toString(),
-                            editTextMelhorHorario.getText().toString()
+                            editTextMelhorHorario.getText().toString(),
+                            editTextEmail.getText().toString()
                     );
         }
     };

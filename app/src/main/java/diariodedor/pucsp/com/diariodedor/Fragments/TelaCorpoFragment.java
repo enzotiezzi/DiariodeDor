@@ -56,10 +56,6 @@ public class TelaCorpoFragment extends android.support.v4.app.Fragment
     private CheckBox checkBoxAnteBracoEsq;
     private CheckBox checkBoxAnteBracoDir;
 
-    //Punhos
-    private CheckBox checkBoxPunhoEsq;
-    private CheckBox checkBoxPunhoDir;
-
     //Maos
     private CheckBox checkBoxMaoEsq;
     private CheckBox checkBoxMaoDir;

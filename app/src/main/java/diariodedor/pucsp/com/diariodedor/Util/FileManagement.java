@@ -37,7 +37,7 @@ public class FileManagement
         escreverInfoPaciente(infos, p);
     }
 
-    public void criarPastaInfoPaciente()
+    private void criarPastaInfoPaciente()
     {
         File folder = new File(STORAGE_PATH, PACIENTE_PATH);
 
