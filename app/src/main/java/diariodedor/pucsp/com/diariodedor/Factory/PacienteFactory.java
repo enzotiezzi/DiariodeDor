@@ -15,8 +15,10 @@ public class PacienteFactory
         Paciente p = null;
 
         //TODO validacoes
-
-        p = new Paciente(nome, profissao, escolaridade, diagnostico, tempoDoenca, melhorHorario, email);
+        if (nome.trim().length() == 0)
+            throw new IllegalArgumentException("Preencha o campo nome corretamente");
+        else
+            p = new Paciente(nome, profissao, escolaridade, diagnostico, tempoDoenca, melhorHorario, email);
 
         return p;
     }

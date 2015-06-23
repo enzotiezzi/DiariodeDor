@@ -2,10 +2,14 @@ package diariodedor.pucsp.com.diariodedor.Controller;
 
 import android.content.Context;
 
+import com.google.gson.Gson;
+
 import java.io.IOException;
 
 import diariodedor.pucsp.com.diariodedor.Factory.PacienteFactory;
 import diariodedor.pucsp.com.diariodedor.Model.Paciente;
+import diariodedor.pucsp.com.diariodedor.Requisition.RequisitionTask;
+import diariodedor.pucsp.com.diariodedor.Requisition.URLs;
 import diariodedor.pucsp.com.diariodedor.Util.FileManagement;
 import diariodedor.pucsp.com.diariodedor.Util.ShowInformation;
 
@@ -29,15 +33,25 @@ public class TelaFormularioController
 
             Paciente p = pacienteFactory.newInstance(nome, profissao, escolaridade, diagnostico, tempoDoenca, melhorHorario, email);
 
-            FileManagement fileManagement = new FileManagement();
+            RequisitionTask.enviarRequisicao(new RequisitionTask.OnRequisitionEnd()
+            {
+                @Override
+                public void onRequisitionEnd(String json, int status, Exception e)
+                {
+                    Paciente p = new Gson().fromJson(json, Paciente.class);
+                    try
+                    {
+                        FileManagement fileManagement = new FileManagement();
+                        fileManagement.salvarInfoPaciente(p);
+                    }
+                    catch(IOException ex)
+                    {
+                        ShowInformation.showToast("Erro durante gravação de dados", Context);
+                    }
 
-            fileManagement.salvarInfoPaciente(p);
-
-            ShowInformation.showToast("Gravado com sucesso!!", Context);
-        }
-        catch(IOException e)
-        {
-            ShowInformation.showToast("Houve um erro ao salvar o arquivo, tente novamente", Context);
+                    ShowInformation.showToast("Gravado com sucesso!!", Context);
+                }
+            }, URLs.localhost+"paciente/create.php", "POST", p, Context);
         }
         catch(Exception e)
         {

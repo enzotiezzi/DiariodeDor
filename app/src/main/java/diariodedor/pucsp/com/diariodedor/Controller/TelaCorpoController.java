@@ -13,6 +13,7 @@ import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
 
+import diariodedor.pucsp.com.diariodedor.Model.Diario;
 import diariodedor.pucsp.com.diariodedor.Model.InforDor;
 import diariodedor.pucsp.com.diariodedor.Model.Paciente;
 import diariodedor.pucsp.com.diariodedor.Model.ParteCorpo;
@@ -492,5 +493,10 @@ public class TelaCorpoController
         }
 
         return p;
+    }
+
+    public void gravar()
+    {
+        Diario d = new Diario(inforDor, partesCorpo);
     }
 }

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Paciente
 {
+    private int Id;
     private String Nome;
     private String Profissao;
     private String Escolaridade;
@@ -56,5 +57,15 @@ public class Paciente
     public String getEmailMedico()
     {
         return EmailMedico;
+    }
+
+    public int getId()
+    {
+        return Id;
+    }
+
+    public void setId(int id)
+    {
+        Id = id;
     }
 }
