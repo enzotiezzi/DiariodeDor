@@ -90,7 +90,7 @@ public abstract class RequisitionTask
                 progressDialog.dismiss();
                 if (s != null)
                 {
-                    callback.onRequisitionEnd(json, status, null);
+                    callback.onRequisitionEnd(s, status, null);
                 }
             }
         }).execute();

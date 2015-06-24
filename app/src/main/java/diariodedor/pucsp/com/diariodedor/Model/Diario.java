@@ -8,12 +8,14 @@ import java.util.List;
  */
 public class Diario
 {
+    private int IdPaciente;
     private InforDor InfoDor;
     private List<ParteCorpo> PartesCorpo;
     private Date Data;
 
-    public Diario(InforDor inforDor, List<ParteCorpo> partesCorpo)
+    public Diario(InforDor inforDor, List<ParteCorpo> partesCorpo, int id)
     {
+        this.IdPaciente = id;
         this.InfoDor = inforDor;
         this.PartesCorpo = partesCorpo;
         this.Data = new Date();

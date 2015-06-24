@@ -121,14 +121,7 @@ public class TelaRespostasFragment extends Fragment
         public void onClick(View v)
         {
             telaCorpoController.setRemedioAndObs(editTextRemedios.getText().toString(), editTextObservacoes.getText().toString());
-
-            EmailManagement emailManagement = new EmailManagement(
-                    telaCorpoController.retornaAssunto(),
-                    telaCorpoController.lerInfoPaciente().getEmailMedico(),
-                    telaCorpoController.retornaMensagem(),
-                    v.getContext());
-
-            emailManagement.enviarEmail();
+            telaCorpoController.gravar();
         }
     };
 }

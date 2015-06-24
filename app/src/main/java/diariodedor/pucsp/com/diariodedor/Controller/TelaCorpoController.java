@@ -18,6 +18,8 @@ import diariodedor.pucsp.com.diariodedor.Model.InforDor;
 import diariodedor.pucsp.com.diariodedor.Model.Paciente;
 import diariodedor.pucsp.com.diariodedor.Model.ParteCorpo;
 import diariodedor.pucsp.com.diariodedor.R;
+import diariodedor.pucsp.com.diariodedor.Requisition.RequisitionTask;
+import diariodedor.pucsp.com.diariodedor.Requisition.URLs;
 import diariodedor.pucsp.com.diariodedor.Util.FileManagement;
 import diariodedor.pucsp.com.diariodedor.Util.ShowInformation;
 
@@ -497,6 +499,24 @@ public class TelaCorpoController
 
     public void gravar()
     {
-        Diario d = new Diario(inforDor, partesCorpo);
+        Diario d = new Diario(inforDor, partesCorpo, lerInfoPaciente().getId());
+
+        RequisitionTask.enviarRequisicao(new RequisitionTask.OnRequisitionEnd()
+        {
+            @Override
+            public void onRequisitionEnd(String json, int status, Exception e)
+            {
+                if(e == null)
+                {
+                    if(json != null)
+                    {
+                        if(status == 200)
+                        {
+                            ShowInformation.showToast("Registrado com sucesso", Context);
+                        }
+                    }
+                }
+            }
+        }, URLs.localhost + "diario/create.php", "POST", d, Context);
     }
 }
