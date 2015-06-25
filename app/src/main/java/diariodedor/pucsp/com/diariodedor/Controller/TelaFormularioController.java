@@ -46,7 +46,7 @@ public class TelaFormularioController
                     }
                     catch(IOException ex)
                     {
-                        ShowInformation.showToast("Erro durante gravação de dados", Context);
+                        ShowInformation.showToast("Erro durante gravaÃ§Ã£o de dados", Context);
                     }
 
                     ShowInformation.showToast("Gravado com sucesso!!", Context);

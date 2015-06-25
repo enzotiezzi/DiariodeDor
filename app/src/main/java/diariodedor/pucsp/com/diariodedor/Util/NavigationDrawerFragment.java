@@ -114,6 +114,7 @@ public class NavigationDrawerFragment extends Fragment
                 new String[]{
                         getString(R.string.Formulario2),
                         getString(R.string.title_activity_tela_formulario),
+                        getString(R.string.listaDiario)
                 }));
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         return mDrawerListView;

@@ -11,6 +11,7 @@ import android.view.MenuItem;
 
 import diariodedor.pucsp.com.diariodedor.Fragments.TelaCorpoFragment;
 import diariodedor.pucsp.com.diariodedor.Fragments.TelaFormularioFragment;
+import diariodedor.pucsp.com.diariodedor.Fragments.TelaListaDiarioFragment;
 import diariodedor.pucsp.com.diariodedor.Fragments.TelaRespostasFragment;
 import diariodedor.pucsp.com.diariodedor.R;
 import diariodedor.pucsp.com.diariodedor.Util.NavigationDrawerFragment;
@@ -54,7 +55,7 @@ public class TelaFormulario extends ActionBarActivity implements NavigationDrawe
                 break;
 
             case 2:
-                fragment = TelaRespostasFragment.newInstance();
+                fragment = TelaListaDiarioFragment.newInstance();
                 break;
 
             default:

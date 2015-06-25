@@ -512,7 +512,8 @@ public class TelaCorpoController
                     {
                         if(status == 200)
                         {
-                            ShowInformation.showToast("Registrado com sucesso", Context);
+                            if(json.equals("true"))
+                                ShowInformation.showToast("Registrado com sucesso", Context);
                         }
                     }
                 }
