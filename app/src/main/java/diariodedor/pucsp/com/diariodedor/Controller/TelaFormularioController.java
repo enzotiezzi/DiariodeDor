@@ -49,7 +49,8 @@ public class TelaFormularioController
                         ShowInformation.showToast("Erro durante gravação de dados", Context);
                     }
 
-                    ShowInformation.showToast("Gravado com sucesso!!", Context);
+                    if(status == 200)
+                        ShowInformation.showToast("Gravado com sucesso!!", Context);
                 }
             }, URLs.localhost+"paciente/create.php", "POST", p, Context);
         }
