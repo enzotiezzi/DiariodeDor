@@ -1,5 +1,6 @@
 package diariodedor.pucsp.com.diariodedor.Fragments;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -203,6 +204,12 @@ public class TelaCorpoFragment extends android.support.v4.app.Fragment
         initialize();
 
         telaCorpoController = new TelaCorpoController(v.getContext());
+
+        new AlertDialog.Builder(v.getContext())
+                .setTitle("Dica!!")
+                .setMessage(getString(R.string.dica))
+                .setNeutralButton("Ok", null)
+                .show();
 
         return v;
     }

@@ -89,7 +89,7 @@ public class TelaRespostasFragment extends Fragment
 
         initialize();
 
-        telaCorpoController = new TelaCorpoController(v.getContext());
+        telaCorpoController = new TelaCorpoController(getActivity());
 
         if(getArguments() != null)
         {

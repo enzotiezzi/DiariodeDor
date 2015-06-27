@@ -1,6 +1,7 @@
 package diariodedor.pucsp.com.diariodedor.Controller;
 
 import android.content.Context;
+import android.os.Handler;
 import android.widget.CheckBox;
 import android.widget.RadioGroup;
 
@@ -8,6 +9,7 @@ import com.google.gson.Gson;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Iterator;
@@ -515,6 +517,20 @@ public class TelaCorpoController
                             if(json.equals("true"))
                                 ShowInformation.showToast("Registrado com sucesso", Context);
                         }
+                    }
+                }
+                else
+                {
+                    if(e instanceof UnknownHostException)
+                    {
+                        new Handler(Context.getMainLooper()).post(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                ShowInformation.showToast("Sem conexão de internet", Context);
+                            }
+                        });
                     }
                 }
             }

@@ -15,6 +15,9 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_tela_formulario">Diário de dor</string>
     <string name="listaDiario">Meus Registros</string>
+    <string name="dica">Selecione as áreas que estão doendo</string>
+    <string name="diario">Diário</string>
+    <string name="cadastrando">Cadastrando informações do paciente</string>
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

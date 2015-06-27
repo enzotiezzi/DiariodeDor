@@ -16,6 +16,10 @@ import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 
+import java.nio.charset.Charset;
+
+import diariodedor.pucsp.com.diariodedor.R;
+
 /**
  * Created by enzo on 22/06/2015.
  */
@@ -40,7 +44,7 @@ public abstract class RequisitionTask
             {
                 progressDialog = new ProgressDialog(context);
                 progressDialog.setTitle("Aguarde...");
-                progressDialog.setMessage("Cadastrando informações do paciente");
+                progressDialog.setMessage(context.getString(R.string.cadastrando));
                 progressDialog.show();
             }
 
@@ -78,6 +82,7 @@ public abstract class RequisitionTask
                 }
                 catch(Exception e)
                 {
+                    progressDialog.dismiss();
                     callback.onRequisitionEnd(null, status, e);
                 }
 

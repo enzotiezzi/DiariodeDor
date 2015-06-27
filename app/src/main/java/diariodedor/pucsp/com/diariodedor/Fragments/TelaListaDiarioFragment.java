@@ -1,5 +1,6 @@
 package diariodedor.pucsp.com.diariodedor.Fragments;
 
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.widget.ListView;
 
 import com.google.gson.Gson;
 
+import java.net.UnknownHostException;
 import java.util.List;
 
 import diariodedor.pucsp.com.diariodedor.Controller.TelaCorpoController;
@@ -17,6 +19,7 @@ import diariodedor.pucsp.com.diariodedor.Model.Diario;
 import diariodedor.pucsp.com.diariodedor.R;
 import diariodedor.pucsp.com.diariodedor.Requisition.RequisitionTask;
 import diariodedor.pucsp.com.diariodedor.Requisition.URLs;
+import diariodedor.pucsp.com.diariodedor.Util.ShowInformation;
 
 
 /**
@@ -59,6 +62,20 @@ public class TelaListaDiarioFragment extends Fragment
                     {
                         diarios = new Gson().fromJson(json, Diario[].class);
                         listViewDiario.setAdapter(new ArrayAdapter<Diario>(getActivity(), android.R.layout.simple_list_item_1, diarios));
+                    }
+                }
+                else
+                {
+                    if(e instanceof UnknownHostException)
+                    {
+                        new Handler(getActivity().getMainLooper()).post(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                ShowInformation.showToast("Sem conexão de internet", getActivity());
+                            }
+                        });
                     }
                 }
             }

@@ -27,36 +27,38 @@ public class TelaFormularioController
 
     public void salvarInfoPaciente(String nome, String profissao, String escolaridade, String diagnostico, String tempoDoenca, String melhorHorario, String email)
     {
-        try
+        if (new TelaCorpoController(Context).lerInfoPaciente() == null)
         {
-            PacienteFactory pacienteFactory = new PacienteFactory();
-
-            Paciente p = pacienteFactory.newInstance(nome, profissao, escolaridade, diagnostico, tempoDoenca, melhorHorario, email);
-
-            RequisitionTask.enviarRequisicao(new RequisitionTask.OnRequisitionEnd()
+            try
             {
-                @Override
-                public void onRequisitionEnd(String json, int status, Exception e)
-                {
-                    Paciente p = new Gson().fromJson(json, Paciente.class);
-                    try
-                    {
-                        FileManagement fileManagement = new FileManagement();
-                        fileManagement.salvarInfoPaciente(p);
-                    }
-                    catch(IOException ex)
-                    {
-                        ShowInformation.showToast("Erro durante gravação de dados", Context);
-                    }
+                PacienteFactory pacienteFactory = new PacienteFactory();
 
-                    if(status == 200)
-                        ShowInformation.showToast("Gravado com sucesso!!", Context);
-                }
-            }, URLs.localhost+"paciente/create.php", "POST", p, Context);
-        }
-        catch(Exception e)
-        {
-            ShowInformation.showToast(e.getMessage(), Context);
+                Paciente p = pacienteFactory.newInstance(nome, profissao, escolaridade, diagnostico, tempoDoenca, melhorHorario, email);
+
+                RequisitionTask.enviarRequisicao(new RequisitionTask.OnRequisitionEnd()
+                {
+                    @Override
+                    public void onRequisitionEnd(String json, int status, Exception e)
+                    {
+                        Paciente p = new Gson().fromJson(json, Paciente.class);
+                        try
+                        {
+                            FileManagement fileManagement = new FileManagement();
+                            fileManagement.salvarInfoPaciente(p);
+                        } catch (IOException ex)
+                        {
+                            ShowInformation.showToast("Erro durante gravação de dados", Context);
+                        }
+
+                        if (status == 200)
+                            ShowInformation.showToast("Gravado com sucesso!!", Context);
+                    }
+                }, URLs.localhost + "paciente/create.php", "POST", p, Context);
+            }
+            catch(Exception e)
+            {
+                ShowInformation.showToast(e.getMessage(), Context);
+            }
         }
     }
 }
