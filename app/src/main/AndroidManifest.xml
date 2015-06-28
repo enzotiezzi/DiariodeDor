@@ -40,6 +40,10 @@
             android:name=".View.TelaListaDiario"
             android:label="@string/title_activity_tela_lista_diario" >
         </activity>
+        <activity
+            android:name=".TelaDiarioDetalhes"
+            android:label="@string/title_activity_tela_diario_detalhes" >
+        </activity>
     </application>
 
 </manifest>

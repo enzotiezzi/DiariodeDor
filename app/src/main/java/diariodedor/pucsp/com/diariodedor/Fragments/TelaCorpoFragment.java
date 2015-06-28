@@ -205,12 +205,19 @@ public class TelaCorpoFragment extends android.support.v4.app.Fragment
 
         telaCorpoController = new TelaCorpoController(v.getContext());
 
-        new AlertDialog.Builder(v.getContext())
-                .setTitle("Dica!!")
-                .setMessage(getString(R.string.dica))
-                .setNeutralButton("Ok", null)
-                .show();
+        if(new TelaCorpoController(getActivity()).lerInfoPaciente() == null)
+        {
+            ShowInformation.showDialog("É necessãrio cadastrar suas informações para cadastrar um diário", getActivity());
 
+            getFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.container, TelaFormularioFragment.newInstance())
+                    .commit();
+        }
+        else
+        {
+            ShowInformation.showDialog(getString(R.string.dica), getActivity());
+        }
         return v;
     }
 

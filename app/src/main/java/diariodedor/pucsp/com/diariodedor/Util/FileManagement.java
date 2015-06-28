@@ -11,7 +11,12 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
+import diariodedor.pucsp.com.diariodedor.Model.Diario;
 import diariodedor.pucsp.com.diariodedor.Model.Paciente;
 
 /**
@@ -22,7 +27,7 @@ public class FileManagement
     private final File STORAGE_PATH = Environment.getExternalStorageDirectory();
 
     private final String PACIENTE_PATH = "User/";
-    private final String ENVIADOS_PATH = "Sended/";
+    private final String DIARIO_PATH = "Diarios/";
     private final String ESPERA_PATH = "Await/";
     private final String PACIENTE_ARQUIVO = "paciente.txt";
 
@@ -37,11 +42,48 @@ public class FileManagement
         escreverInfoPaciente(infos, p);
     }
 
+    public void salvarDiario(Diario diario) throws IOException
+    {
+        criarPastaDiarios();
+        File file = new File(new File(STORAGE_PATH, DIARIO_PATH), (diario.toString()+".txt").replace(" ", "").replace("/", "-"));
+        file.createNewFile();
+        escreverArquivo(file, new Gson().toJson(diario));
+    }
+
+    public List<Diario> carregarDiarios() throws IOException
+    {
+        List<Diario> lista = new ArrayList<Diario>();
+
+        File folder = new File(STORAGE_PATH, DIARIO_PATH);
+        File[] arquivos = folder.listFiles();
+
+        if (arquivos != null)
+        {
+            for (File f : arquivos)
+            {
+                String json = lerArquivo(f);
+                lista.add(new Gson().fromJson(json, Diario.class));
+            }
+        }
+
+        return lista;
+    }
+
     private void criarPastaInfoPaciente()
     {
         File folder = new File(STORAGE_PATH, PACIENTE_PATH);
 
         if(!folder.exists())
+        {
+            folder.mkdir();
+        }
+    }
+
+    private void criarPastaDiarios()
+    {
+        File folder = new File(STORAGE_PATH, DIARIO_PATH);
+
+        if (!folder.exists())
         {
             folder.mkdir();
         }

@@ -503,6 +503,15 @@ public class TelaCorpoController
     {
         Diario d = new Diario(inforDor, partesCorpo, lerInfoPaciente().getId());
 
+        try
+        {
+            new FileManagement().salvarDiario(d);
+        }
+        catch(IOException e)
+        {
+            ShowInformation.showToast("Erro ao gravar diário", Context);
+        }
+
         RequisitionTask.enviarRequisicao(new RequisitionTask.OnRequisitionEnd()
         {
             @Override
@@ -528,7 +537,7 @@ public class TelaCorpoController
                             @Override
                             public void run()
                             {
-                                ShowInformation.showToast("Sem conexão de internet", Context);
+                                ShowInformation.showToast("Sem conexão de internet, diário será gravado no seu celular", Context);
                             }
                         });
                     }

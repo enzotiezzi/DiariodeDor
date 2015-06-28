@@ -1,10 +1,14 @@
 package diariodedor.pucsp.com.diariodedor.Controller;
 
 import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
 
 import com.google.gson.Gson;
 
 import java.io.IOException;
+import java.lang.reflect.Field;
+import java.net.UnknownHostException;
 
 import diariodedor.pucsp.com.diariodedor.Factory.PacienteFactory;
 import diariodedor.pucsp.com.diariodedor.Model.Paciente;
@@ -33,25 +37,52 @@ public class TelaFormularioController
             {
                 PacienteFactory pacienteFactory = new PacienteFactory();
 
-                Paciente p = pacienteFactory.newInstance(nome, profissao, escolaridade, diagnostico, tempoDoenca, melhorHorario, email);
+                final Paciente p = pacienteFactory.newInstance(nome, profissao, escolaridade, diagnostico, tempoDoenca, melhorHorario, email);
 
                 RequisitionTask.enviarRequisicao(new RequisitionTask.OnRequisitionEnd()
                 {
                     @Override
                     public void onRequisitionEnd(String json, int status, Exception e)
                     {
-                        Paciente p = new Gson().fromJson(json, Paciente.class);
-                        try
+                        if (e == null)
                         {
-                            FileManagement fileManagement = new FileManagement();
-                            fileManagement.salvarInfoPaciente(p);
-                        } catch (IOException ex)
-                        {
-                            ShowInformation.showToast("Erro durante gravação de dados", Context);
-                        }
+                            Paciente paciente = new Gson().fromJson(json, Paciente.class);
+                            try
+                            {
+                                FileManagement fileManagement = new FileManagement();
+                                fileManagement.salvarInfoPaciente(paciente);
+                            } catch (IOException ex)
+                            {
+                                ShowInformation.showToast("Erro durante gravação de dados", Context);
+                            }
 
-                        if (status == 200)
-                            ShowInformation.showToast("Gravado com sucesso!!", Context);
+                            if (status == 200)
+                                ShowInformation.showToast("Gravado com sucesso!!", Context);
+                        }
+                        else
+                        {
+                            if (e instanceof UnknownHostException)
+                            {
+                                try
+                                {
+                                    FileManagement fileManagement = new FileManagement();
+                                    fileManagement.salvarInfoPaciente(p);
+                                }
+                                catch (IOException ex)
+                                {
+                                    ShowInformation.showToast("Erro durante gravação de dados", Context);
+                                }
+
+                                new Handler(Looper.getMainLooper()).post(new Runnable()
+                                {
+                                    @Override
+                                    public void run()
+                                    {
+                                        ShowInformation.showToast("Sem conexão de internet, seu registro foi gravado no celular", Context);
+                                    }
+                                });
+                            }
+                        }
                     }
                 }, URLs.localhost + "paciente/create.php", "POST", p, Context);
             }
