@@ -41,6 +41,6 @@ public class Diario
     @Override
     public String toString()
     {
-        return "Diário do dia " + new SimpleDateFormat("dd/MM/yyyy").format(this.Data);
+        return "Diário do dia " + new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(this.Data);
     }
 }
